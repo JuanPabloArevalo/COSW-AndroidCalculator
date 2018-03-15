@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/txt_operation"
         android:layout_width="0dp"
-        android:layout_height="123dp"
+        android:layout_height="48dp"
         android:background="@android:color/background_dark"
         android:text="0"
         android:textAlignment="textEnd"
@@ -27,8 +27,8 @@
 
     <Button
         android:id="@+id/btn_7"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="7"
         android:textColor="@android:color/holo_blue_bright"
@@ -38,8 +38,8 @@
 
     <Button
         android:id="@+id/btn_8"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="8"
         android:textColor="@android:color/holo_blue_bright"
@@ -49,8 +49,8 @@
 
     <Button
         android:id="@+id/btn_9"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="9"
         android:textColor="@android:color/holo_blue_bright"
@@ -60,8 +60,8 @@
 
     <Button
         android:id="@+id/btn_4"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/_4"
         android:textColor="@android:color/holo_blue_bright"
@@ -71,8 +71,8 @@
 
     <Button
         android:id="@+id/btn_5"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/_5"
         android:textColor="@android:color/holo_blue_bright"
@@ -82,8 +82,8 @@
 
     <Button
         android:id="@+id/btn_6"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/_6"
         android:textColor="@android:color/holo_blue_bright"
@@ -93,8 +93,8 @@
 
     <Button
         android:id="@+id/btn_1"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/_1"
         android:textColor="@android:color/holo_blue_bright"
@@ -104,8 +104,8 @@
 
     <Button
         android:id="@+id/btn_2"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/_2"
         android:textColor="@android:color/holo_blue_bright"
@@ -115,8 +115,8 @@
 
     <Button
         android:id="@+id/btn_3"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/_3"
         android:textColor="@android:color/holo_blue_bright"
@@ -126,8 +126,8 @@
 
     <Button
         android:id="@+id/btn_0"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:layout_width="303dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="0"
         android:textColor="@android:color/holo_blue_bright"
@@ -137,8 +137,8 @@
 
     <Button
         android:id="@+id/btn_point"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
         android:text="."
         android:textColor="@android:color/holo_blue_bright"
@@ -148,7 +148,7 @@
 
     <Button
         android:id="@+id/btn_next"
-        android:layout_width="299dp"
+        android:layout_width="456dp"
         android:layout_height="0dp"
         android:background="@android:color/holo_blue_bright"
         android:text="@string/next"
@@ -161,7 +161,7 @@
     <Button
         android:id="@+id/btn_more"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_light"
         android:text="+"
         android:textColor="@color/colorPrimaryDark"
@@ -173,7 +173,7 @@
     <Button
         android:id="@+id/btn_subs"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_light"
         android:text="-"
         android:textColor="@color/colorPrimaryDark"
@@ -185,7 +185,7 @@
     <Button
         android:id="@+id/btn_mult"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_light"
         android:text="*"
         android:textColor="@color/colorPrimaryDark"
@@ -210,7 +210,7 @@
     <Button
         android:id="@+id/btn_ac"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_dark"
         android:text="AC"
         android:textColor="@color/colorPrimaryDark"
@@ -223,7 +223,7 @@
     <Button
         android:id="@+id/btn_sen"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_light"
         android:onClick="calculateSen"
         android:text="SEN"
@@ -235,7 +235,7 @@
     <Button
         android:id="@+id/btn_cos"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_light"
         android:onClick="calculateCos"
         android:text="COS"
@@ -247,7 +247,7 @@
     <Button
         android:id="@+id/btn_tan"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_light"
         android:onClick="calculateTan"
         android:text="TAN"
@@ -259,49 +259,48 @@
     <Button
         android:id="@+id/btn_moreLess"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_light"
         android:text="+/-"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_tan"
+        app:layout_constraintStart_toEndOf="@+id/btn_sqrt"
         app:layout_constraintTop_toBottomOf="@+id/txt_operation" />
 
     <Button
         android:id="@+id/btn_squared"
-        android:layout_width="126dp"
-        android:layout_height="46dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_light"
         android:text="X^2"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sen" />
+        app:layout_constraintStart_toEndOf="@+id/btn_tan"
+        app:layout_constraintTop_toTopOf="@+id/btn_tan" />
 
     <Button
         android:id="@+id/btn_sqrt"
-        android:layout_width="126dp"
-        android:layout_height="46dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_light"
         android:text="SQRT(x)"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/btn_squared"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cos" />
+        app:layout_constraintTop_toTopOf="@+id/btn_tan" />
 
     <Button
         android:id="@+id/btn_log"
         android:layout_width="0dp"
-        android:layout_height="46dp"
+        android:layout_height="40dp"
         android:background="@android:color/holo_blue_light"
         android:text="LOG"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_sqrt"
+        app:layout_constraintStart_toEndOf="@+id/btn_9"
         app:layout_constraintTop_toBottomOf="@+id/btn_moreLess" />
 
 </android.support.constraint.ConstraintLayout>

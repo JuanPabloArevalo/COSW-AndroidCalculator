@@ -226,6 +226,7 @@
         android:layout_height="50dp"
         android:background="@android:color/holo_blue_light"
         android:text="SEN"
+        android:onClick="calculateSen"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -239,6 +240,7 @@
         android:text="COS"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
+        android:onClick="calculateCos"
         app:layout_constraintStart_toEndOf="@+id/btn_sen"
         app:layout_constraintTop_toBottomOf="@+id/txt_operation" />
 
@@ -250,6 +252,7 @@
         android:text="TAN"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
+        android:onClick="calculateTan"
         app:layout_constraintStart_toEndOf="@+id/btn_cos"
         app:layout_constraintTop_toBottomOf="@+id/txt_operation" />
 

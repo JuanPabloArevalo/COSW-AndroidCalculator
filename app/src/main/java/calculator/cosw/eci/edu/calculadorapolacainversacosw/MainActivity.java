@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Double> array_values;
-    private Button btn_0, btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_ac, btn_point, btn_next, btn_sum;
+    private Button btn_0, btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_ac, btn_point, btn_next, btn_sum, btn_subst, btn_mult,
+    btn_div, btn_moreLess, btn_squared, btn_sqrt, btn_log;
     private TextView txt_operation;
     private double actualValue;
     private long actualValueLong;
@@ -38,16 +40,19 @@ public class MainActivity extends AppCompatActivity {
         btn_point=(Button)findViewById(R.id.btn_point);
         btn_next=(Button)findViewById(R.id.btn_next);
         btn_sum=(Button)findViewById(R.id.btn_more);
-
-
-
+        btn_subst=(Button)findViewById(R.id.btn_subs);
+        btn_mult=(Button)findViewById(R.id.btn_mult);
+        btn_div=(Button)findViewById(R.id.btn_division);
+        btn_moreLess=(Button)findViewById(R.id.btn_moreLess);
+        btn_squared=(Button)findViewById(R.id.btn_squared);
+        btn_sqrt=(Button)findViewById(R.id.btn_sqrt);
+        btn_log=(Button)findViewById(R.id.btn_log);
         txt_operation= (TextView)findViewById(R.id.txt_operation) ;
 
 
         btn_0.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                addNumberActual("0");
+            public void onClick(View view) {addNumberActual("0");
             }
         });
 
@@ -118,9 +123,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 array_values.clear();
-                actualValue=0;
-                actualValueLong=0;
-                isDouble = false;
+                initialState();
                 drawOperation();
             }
         });
@@ -136,64 +139,163 @@ public class MainActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isDouble){
-                    array_values.add(actualValue);
-                }
-                else{
-                    array_values.add(Double.valueOf(actualValueLong));
-                }
-                initialState();
+                addToArrayValue();
+                drawOperation();
             }
         });
 
         btn_sum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double operando1 = 0, operando2 = 0, total=0;
+               preValidOperation();
+               if(isOperationValidTwoFactors()){
+                   double operando1 = 0, operando2 = 0, total=0;
+                   operando1 = array_values.get(array_values.size()-1);
+                   operando2 = array_values.get(array_values.size()-2);
+
+                   removeTwoLastOperators();
+                   total = operando1 + operando2;
+                   array_values.add(total);
+                   initialState();
+               }
+               else{
+                   Toast.makeText(getApplicationContext(),"You need 2 values.", Toast.LENGTH_SHORT).show();;
+               }
+               drawOperation();
+            }
+        });
+        btn_subst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preValidOperation();
                 if(isOperationValidTwoFactors()){
-                    if(isDouble){
-                        if(actualValue==0){
-                            operando1 = array_values.get(array_values.size()-1);
-                            operando2 = array_values.get(array_values.size()-2);
-                            array_values.remove(array_values.size()-1);
-                            array_values.remove(array_values.size()-2);
-                            total = operando1 + operando2;
-                            array_values.add(total);
-                            initialState();
-                        }
-                        else{
-                            operando1 = array_values.get(array_values.size()-1);
-                            operando2 = actualValue;
-                            array_values.remove(array_values.size()-1);
-                            total = operando1 + operando2;
-                            array_values.add(total);
-                            initialState();
-                        }
-                    }
-                    else {
-                        if (actualValueLong == 0) {
-                            System.out.println("Tamaño: "+array_values.size());
-                            operando1 = array_values.get(array_values.size() - 1);
-                            operando2 = array_values.get(array_values.size() - 2);
-                            array_values.remove(array_values.size() - 1);
-                            array_values.remove(array_values.size() - 2);
-                            total = operando1 + operando2;
-                            array_values.add(total);
-                            initialState();
-                        } else {
-                            operando1 = array_values.get(array_values.size() - 1);
-                            operando2 = actualValueLong;
-                            array_values.remove(array_values.size() - 1);
-                            total = operando1 + operando2;
-                            array_values.add(total);
-                            initialState();
-                        }
-                    }
+                    double operando1 = 0, operando2 = 0, total=0;
+                    operando2 = array_values.get(array_values.size()-1);
+                    operando1 = array_values.get(array_values.size()-2);
+
+                    removeTwoLastOperators();
+                    total = operando1 - operando2;
+                    array_values.add(total);
+                    initialState();
                 }
                 else{
-
+                    Toast.makeText(getApplicationContext(),"You need 2 values.", Toast.LENGTH_SHORT).show();;
                 }
-
+                drawOperation();
+            }
+        });
+        btn_mult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preValidOperation();
+                if(isOperationValidTwoFactors()){
+                    double operando1 = 0, operando2 = 0, total=0;
+                    operando2 = array_values.get(array_values.size()-1);
+                    operando1 = array_values.get(array_values.size()-2);
+                    removeTwoLastOperators();
+                    total = operando1 * operando2;
+                    array_values.add(total);
+                    initialState();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"You need 2 values.", Toast.LENGTH_SHORT).show();;
+                }
+                drawOperation();
+            }
+        });
+        btn_div.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preValidOperation();
+                if(isOperationValidTwoFactors()){
+                    double operando1 = 0, operando2 = 0, total=0;
+                    operando2 = array_values.get(array_values.size()-1);
+                    operando1 = array_values.get(array_values.size()-2);
+                    if(operando2!=0) {
+                        removeTwoLastOperators();
+                        total = operando1 / operando2;
+                        array_values.add(total);
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Error! Can't be divided by 0.", Toast.LENGTH_SHORT).show();;
+                    }
+                    initialState();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"You need 2 values.", Toast.LENGTH_SHORT).show();;
+                }
+                drawOperation();
+            }
+        });
+        btn_moreLess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preValidOperation();
+                if(isOperationValidOneFactor()){
+                    double operando1 = 0, total=0;
+                    operando1 = array_values.get(array_values.size()-1);
+                    removeOneLastOperator();
+                    total = operando1 * -1;
+                    array_values.add(total);
+                    initialState();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"You need 1 value.", Toast.LENGTH_SHORT).show();;
+                }
+                drawOperation();
+            }
+        });
+        btn_squared.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preValidOperation();
+                if(isOperationValidOneFactor()){
+                    double operando1 = 0, total=0;
+                    operando1 = array_values.get(array_values.size()-1);
+                    removeOneLastOperator();
+                    total = operando1 * operando1;
+                    array_values.add(total);
+                    initialState();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"You need 1 value.", Toast.LENGTH_SHORT).show();;
+                }
+                drawOperation();
+            }
+        });
+        btn_sqrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preValidOperation();
+                if(isOperationValidOneFactor()){
+                    double operando1 = 0, total=0;
+                    operando1 = array_values.get(array_values.size()-1);
+                    removeOneLastOperator();
+                    total = Math.sqrt(operando1);
+                    array_values.add(total);
+                    initialState();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"You need 1 value.", Toast.LENGTH_SHORT).show();;
+                }
+                drawOperation();
+            }
+        });
+        btn_log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preValidOperation();
+                if(isOperationValidOneFactor()){
+                    double operando1 = 0, total=0;
+                    operando1 = array_values.get(array_values.size()-1);
+                    removeOneLastOperator();
+                    total = Math.log10(operando1);
+                    array_values.add(total);
+                    initialState();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"You need 1 value.", Toast.LENGTH_SHORT).show();;
+                }
                 drawOperation();
             }
         });
@@ -266,22 +368,95 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean isOperationValidTwoFactors(){
-        if(isDouble){
-            if(actualValue==0 && array_values.size()<=1){
-                return false;
-            }
-            else{
-                return true;
-            }
+        if(array_values.size()<=1){
+            return false;
         }
         else{
-            if(actualValueLong==0 && array_values.size()<=1){
-                return false;
-            }
-            else{
-                return true;
-            }
+            return true;
         }
     }
 
+    private boolean isOperationValidOneFactor(){
+        if(array_values.isEmpty()){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+
+    private void addToArrayValue(){
+        if(isDouble){
+            array_values.add(actualValue);
+        }
+        else{
+            array_values.add(Double.valueOf(actualValueLong));
+        }
+        initialState();
+    }
+
+    private void removeTwoLastOperators(){
+        array_values.remove(array_values.size()-1);
+        array_values.remove(array_values.size()-1);
+    }
+
+    private void removeOneLastOperator(){
+        array_values.remove(array_values.size()-1);
+    }
+
+    private void preValidOperation(){
+        if(actualValue!=0 || actualValueLong!=0){
+            addToArrayValue();
+            drawOperation();
+        }
+    }
+
+    public void calculateCos(View view) {
+        preValidOperation();
+        if(isOperationValidOneFactor()){
+            double operando1 = 0, total=0;
+            operando1 = array_values.get(array_values.size()-1);
+            removeOneLastOperator();
+            total = Math.cos(operando1);
+            array_values.add(total);
+            initialState();
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"You need 1 value.", Toast.LENGTH_SHORT).show();;
+        }
+        drawOperation();
+    }
+
+    public void calculateSen(View view) {
+        preValidOperation();
+        if(isOperationValidOneFactor()){
+            double operando1 = 0, total=0;
+            operando1 = array_values.get(array_values.size()-1);
+            removeOneLastOperator();
+            total = Math.sin(operando1);
+            array_values.add(total);
+            initialState();
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"You need 1 value.", Toast.LENGTH_SHORT).show();;
+        }
+        drawOperation();
+    }
+
+    public void calculateTan(View view) {
+        preValidOperation();
+        if(isOperationValidOneFactor()){
+            double operando1 = 0, total=0;
+            operando1 = array_values.get(array_values.size()-1);
+            removeOneLastOperator();
+            total = Math.tan(operando1);
+            array_values.add(total);
+            initialState();
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"You need 1 value.", Toast.LENGTH_SHORT).show();;
+        }
+        drawOperation();
+    }
 }
